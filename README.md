@@ -1,2 +1,2 @@
 # validaform
-Basic javascript validator
+Basic javascript form validator
