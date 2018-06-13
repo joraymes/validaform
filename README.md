@@ -1,15 +1,22 @@
 # validaform
+´´
 Basic javascript form validator
+´´´ 
 
+## Descripcion	
+	Evalua un Objeto formulario de multiples caracteristicas
 
-Descripcion	:   Evalua un Objeto formulario de multiples caracteristicas
-Recibe		: objForm			:	como un Objeto formulario del documento. 
-						msgType			:	como string indicando el modo de mensaje de error (ver Mensajes de Error)
-						language		:	como string indicando el idioma de los mensajes de error ( ver Idioma)
-						xmlDoc		   :	como string indicando la ruta  del fichero xml de mensajes de error ej: '/js/validaform.xml'
-Devuelve	:	True si todos los elementos del formulario son correctos.
-            False en caso de existir un campo o mas, mal rellenado.
-Acciones  : En caso de detectar un error en el campo , añade la class "validaform-errField" sobre el mismo
+## Recibe		
+	objForm	:	como un Objeto formulario del documento. 
+	msgType	:	como string indicando el modo de mensaje de error (ver Mensajes de Error)
+        language:	como string indicando el idioma de los mensajes de error ( ver Idioma)
+	xmlDoc	:	como string indicando la ruta  del fichero xml de mensajes de error ej: '/js/validaform.xml'
+
+## Devuelve		
+    True si todos los elementos del formulario son correctos.
+     False en caso de existir un campo o mas, mal rellenado.
+## Acciones  
+	En caso de detectar un error en el campo , añade la class "validaform-errField" sobre el mismo
             elemento donde se ha detactado dicho error.
 					 
 Uso:		Añadir en los elementos del formulario el atributo "class" 	con [opcion] para indicar a la funcion que formato se  	requiere.
