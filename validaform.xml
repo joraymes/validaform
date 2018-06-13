@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<errMsgStore>
+  <errMsg category="txt-obl">
+    <es>Campo Obligatorio</es>
+    <ca>Camp obligatori</ca>
+    <en>Obligatory field</en>
+    <fr>Entree obligatoire</fr>
+  </errMsg>
+  <errMsg category="isNumber">
+    <es>Campo tiene que ser un numero</es>
+    <ca>La dada ha de ser numerica</ca>
+    <en>Number field please</en>
+    <fr>le champ se an number</fr>
+  </errMsg>
+  <errMsg category="isOnlyChars">
+    <es>Solo se acceptan letras</es>
+    <ca>Sols s'accepten lletres</ca>
+    <en>Only Chars please</en>
+    <fr>je sui desole</fr>
+  </errMsg>
+  <errMsg category="email">
+    <es>Dirección de correo no válida</es>
+    <ca>direcció de correu incorrecte</ca>
+    <en>Mail Incorrect!!</en>
+    <fr>le direction se pa correct</fr>
+  </errMsg>
+  <errMsg category="chk-obl">
+    <es>Campo Obligatorio</es>
+    <ca>Camp obligatori</ca>
+    <en>Obligatory CheckBox</en>
+    <fr>Entree obligatoire</fr>
+  </errMsg>
+  <errMsg category="rad-obl">
+    <es>Campo Obligatorio</es>
+    <ca>Camp obligatori</ca>
+    <en>Obligatory field</en>
+    <fr>Entree obligatoire</fr>
+  </errMsg>
+  <errMsg category="sel-obl">
+    <es>Campo Obligatorio</es>
+    <ca>Escull un opció de la llista</ca>
+    <en>Obligatory field</en>
+    <fr>Entree obligatoire</fr>
+  </errMsg>
+  <errMsg category="mult-obl">
+    <es>Campo Obligatorio</es>
+    <ca>Camp obligatori</ca>
+    <en>Obligatory field</en>
+    <fr>Entree obligatoire</fr>
+  </errMsg>
+  <errMsg category="NIF">
+    <es>Numero de Identificacion Fiscal incorrecto</es>
+    <ca>Numero de Identificació Fiscal incorrecte</ca>
+    <en>Incorrect Numero de Identificacion Fiscal </en>
+    <fr>Num de Identificacion Fiscal ne pa correct</fr>
+  </errMsg>
+  <errMsg category="passValid">
+    <es>Las contraseñas no coinciden</es>
+    <ca>Les contrasenyes no coincideixen</ca>
+    <en>Passwords do not equal</en>
+    <fr>clau d'acces no coincients</fr>
+  </errMsg>
+  <errMsg category="isDateDdMmYyyy">
+    <es>La fecha o tiene formato incorrecto</es>
+    <ca>Las data te format incorrecte</ca>
+    <en>Dates incorrect, wrong format</en>
+    <fr>Les date ne pa correct format</fr>
+  </errMsg>
+  
+</errMsgStore>
