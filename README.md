@@ -50,7 +50,7 @@
 	Los valores de msgLanguage pueden ser los que esten editados para cada combinacion de 
 	[opcion] dentro del fichero xml . por defecto tenemos editados los idioma de 'es' : español , 'ca' : Catala, 'en':ingles , 'fr' : frances. 
 
-# Autor:		
+## Autor		
 	Docent Cifo La Violeta.				
-# Fecha:		
+## Fecha		
 	Junio 2018.
