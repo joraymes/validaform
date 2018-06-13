@@ -21,18 +21,18 @@
 ## Uso	
 	Añadir en los elementos del formulario el atributo "class" con [opcion] para indicar a la funcion que formato se  	requiere.
 					
-[opcion]	: Descripcion
-"txt-obl"	: Para input text obligatorios.
-"isNumber"      : Para validar numeros enteros (adminte signo + o - delante)
-"isOnlyChars" 	: Para inputs text con formato solo caracteres.
-"email"		: Para inputs que requieren una dir. Correo
-"chk-obl"	: Para inputs checkbox obligatorios.
-"rad-obl"	: Para inputs radio obligatorios.
-"sel-obl"	: Para select obligatorios (no multiples).
-"mult-obl"	: Para select multiples obligatorios.
-"NIF"           : para validación de campos en formato NIF [8 digitos + Letra]
-"passValid"     : para validar  campos password que coincidan entre si
-"isDateDdMmYyyy": para validar fecha como dd/mm/yyyy o dd-mm-yyyy
+	[opcion]	: Descripcion
+	"txt-obl"	: Para input text obligatorios.
+	"isNumber"      : Para validar numeros enteros (adminte signo + o - delante)
+	"isOnlyChars" 	: Para inputs text con formato solo caracteres.
+	"email"		: Para inputs que requieren una dir. Correo
+	"chk-obl"	: Para inputs checkbox obligatorios.
+	"rad-obl"	: Para inputs radio obligatorios.
+	"sel-obl"	: Para select obligatorios (no multiples).
+	"mult-obl"	: Para select multiples obligatorios.
+	"NIF"           : para validación de campos en formato NIF [8 digitos + Letra]
+	"passValid"     : para validar  campos password que coincidan entre si
+	"isDateDdMmYyyy": para validar fecha como dd/mm/yyyy o dd-mm-yyyy
 				
 ## Mensajes de Error 
 	Los valores msgType pueden ser:
