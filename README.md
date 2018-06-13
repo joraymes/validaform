@@ -47,7 +47,7 @@
 	El mensaje de error se escribe en un hermano inmediato al lado del campo ( se manipula la propiedead CSS display)
 	Tenemos que definir incialmente display = none y la función lo revierte a display = block ;
 ## Idioma
-	Los valores de msgLanguage pueden ser los que esten editados para cada combinacion de 
+	Los valores de `anguage` pueden ser los que esten editados para cada combinacion de 
 	[opcion] dentro del fichero xml . por defecto tenemos editados los idioma de 'es' : español , 'ca' : Catala, 'en':ingles , 'fr' : frances. 
 
 ## Autor		
