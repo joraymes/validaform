@@ -1,9 +1,9 @@
 /* -------------------------------  validaform   ----------------------------------------------
 		Descripcion	:   Evalua un Objeto formulario de multiples caracteristicas
 		Recibe		: 	objForm			:	como un Objeto formulario del documento. 
-						msgType			:	como string indicando el modo de mensaje de error (ver Mensajes de Error)
-						language		:	como string indicando el idioma de los mensajes de error ( ver Idioma)
-						xmlDoc		    :	como string indicando la ruta  del fichero xml de mensajes de error ej: '/js/validaform.xml'
+					msgType			:	como string indicando el modo de mensaje de error (ver Mensajes de Error)
+					language		:	como string indicando el idioma de los mensajes de error ( ver Idioma)
+					xmlDocURL		:	como string indicando la ruta  del fichero xml de mensajes de error ej: '/js/validaform.xml'
 		Devuelve	:	True si todos los elementos del formulario son correctos.
                         False en caso de existir un campo o mas, mal rellenado.
         Acciones    :   En caso de detectar un error en el campo , añade la class "validaform-errField" sobre el mismo
@@ -11,14 +11,14 @@
 					 
 		Uso:		Añadir en los elementos del formulario el atributo "class" 	con [opcion] para indicar a la funcion que formato se  	requiere.
 					
-				[opcion]		: Descripcion
-                "txt-obl"		: Para input text obligatorios.
+		[opcion]	: [Descripcion]
+                "txt-obl"	: Para input text obligatorios.
                 "isNumber"      : Para validar numeros enteros (adminte signo + o - delante)
-				"isOnlyChars" 	: Para inputs text con formato solo caracteres.
-				"email"			: Para inputs que requieren una dir. Correo
-				"chk-obl"		: Para inputs checkbox obligatorios.
-				"rad-obl"		: Para inputs radio obligatorios.
-				"sel-obl"		: Para select obligatorios (no multiples).
+		"isOnlyChars" 	: Para inputs text con formato solo caracteres.
+		"email"			: Para inputs que requieren una dir. Correo
+		"chk-obl"		: Para inputs checkbox obligatorios.
+		"rad-obl"		: Para inputs radio obligatorios.
+		"sel-obl"		: Para select obligatorios (no multiples).
                 "mult-obl"		: Para select multiples obligatorios.
                 "NIF"           : para validación de campos en formato NIF [8 digitos + Letra]
                 "passValid"     : para validar  campos password que coincidan entre si
@@ -41,8 +41,11 @@
 		Fecha:		Junio 2018.
 
  ------------------------------------------------------------------------------------------------------------------- */
-function validaform(objForm,msgType,language,xmlDoc){
-    xmlDoc=validaformLoadXmlReports(xmlDoc);
+
+
+
+function validaform(objForm,msgType,language,xmlDocURL){
+    var xmlDoc=validaformLoadXmlReports(xmlDocURL);
 
     //console.log(objForm.elements);
     var totOk=true;
@@ -53,52 +56,54 @@ function validaform(objForm,msgType,language,xmlDoc){
 
     // Recorre cada uno de los elementos del formulario
     for(var i=0; i< objForm.elements.length ;i++ ){
-        //console.log(objForm.elements[i]);
-
         /* ------------------------------ txt-obl ------------------------------------------*/
         if(objForm.elements[i].className.indexOf('txt-obl')!=-1){
-            //console.log('econtrado: txt-obl');
             if(objForm.elements[i].value.trim()==''){
                 totOk=false;
                 objForm.elements[i].className += ' validaform-errField ';
                 validaformDisplayErrMessage(msgType,'txt-obl',language,xmlDoc,objForm.elements[i]);
             }
         }
-
         /* -------------------------------- isNumber ------------------------------------------*/
         if(objForm.elements[i].className.indexOf('isNumber')!=-1){
-            if(! objForm.elements[i].value.match(/^[-+]?[0-9]+$/)   ){
-                totOk=false;
-                objForm.elements[i].className += ' validaform-errField ';
-                validaformDisplayErrMessage(msgType,'isNumber',language,xmlDoc,objForm.elements[i]);    
-            } 
+            if(objForm.elements[i].value!=''){
+                if(! objForm.elements[i].value.match(/^[-+]?[0-9]+$/)   ){
+                    totOk=false;
+                    objForm.elements[i].className += ' validaform-errField ';
+                    validaformDisplayErrMessage(msgType,'isNumber',language,xmlDoc,objForm.elements[i]);    
+                }
+            }
         }
-        
         /* --------------------------------- isOnlyChars --------------------------------------- */
         if(objForm.elements[i].className.indexOf('isOnlyChars')!=-1){
-            if(! objForm.elements[i].value.match(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/)   ){
-                totOk=false;
-                objForm.elements[i].className += ' validaform-errField ';
-                validaformDisplayErrMessage(msgType,'isOnlyChars',language,xmlDoc,objForm.elements[i]); 
+            if(objForm.elements[i].value!=''){
+                if(! objForm.elements[i].value.match(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/)   ){
+                    totOk=false;
+                    objForm.elements[i].className += ' validaform-errField ';
+                    validaformDisplayErrMessage(msgType,'isOnlyChars',language,xmlDoc,objForm.elements[i]); 
+                }
             }
         }
         /* ---------------------------------- email --------------------------------------------- */
         if(objForm.elements[i].className.indexOf('email')!=-1){
-            if(! objForm.elements[i].value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)   ){
-                totOk=false;
-                objForm.elements[i].className += ' validaform-errField ';
-                validaformDisplayErrMessage(msgType,'email',language,xmlDoc,objForm.elements[i]); 
+            if(objForm.elements[i].value==''){
+                if(! objForm.elements[i].value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)   ){
+                    totOk=false;
+                    objForm.elements[i].className += ' validaform-errField ';
+                    validaformDisplayErrMessage(msgType,'email',language,xmlDoc,objForm.elements[i]); 
+                }
             }
         }
         /* ----------------------------------- NIF ----------------------------------------------- */
         if(objForm.elements[i].className.indexOf('NIF')!=-1){
-            if(! validaformParseNIF(objForm.elements[i].value)){
-                totOk=false;
-                objForm.elements[i].className += ' validaform-errField ';
-                validaformDisplayErrMessage(msgType,'NIF',language,xmlDoc,objForm.elements[i]); 
+            if(objForm.elements[i].value==''){
+                if(! validaformParseNIF(objForm.elements[i].value)){
+                    totOk=false;
+                    objForm.elements[i].className += ' validaform-errField ';
+                    validaformDisplayErrMessage(msgType,'NIF',language,xmlDoc,objForm.elements[i]); 
+                }
             }
         }
-
         /* --------------------------------- rad-obl -------------------------------------------*/
         if(objForm.elements[i].className.indexOf('rad-obl')!=-1){
             var arrObjRadio= document.getElementsByName(objForm.elements[i].name);
@@ -144,12 +149,13 @@ function validaform(objForm,msgType,language,xmlDoc){
 
         /* --------------------------------- isDateDdMmYyyy -------------------------------------------*/
         if(objForm.elements[i].className.indexOf('isDateDdMmYyyy')!=-1){
-            if(! validaformParseDate(objForm.elements[i].value)){
-                totOk=false;
-                objForm.elements[i].className += ' validaform-errField ';
-                validaformDisplayErrMessage(msgType,'isDateDdMmYyyy',language,xmlDoc,objForm.elements[i]);  
+            if(objForm.elements[i].value==''){
+                if(! validaformParseDate(objForm.elements[i].value)){
+                    totOk=false;
+                    objForm.elements[i].className += ' validaform-errField ';
+                    validaformDisplayErrMessage(msgType,'isDateDdMmYyyy',language,xmlDoc,objForm.elements[i]);  
+                }
             }
-
         }
     }
     return totOk;
@@ -174,12 +180,12 @@ function validaformParseDate(cadena){
         var ano = parseInt(cadena.split('/')[2]);
     }
     var listaDias=[31,28,31,30,31,30,31,31,30,31,30,31];
-    if(mes!=2){ // No es Febrero
+    if(mes!=2){ 
         if(dia>listaDias[mes-1]){
             return false;
         }
-    }else{      // Para febrero .....
-        if ((ano % 4 == 0) && ((ano % 100 != 0) || (ano % 400 == 0))){ //Bisiesto
+    }else{      
+        if ((ano % 4 == 0) && ((ano % 100 != 0) || (ano % 400 == 0))){
             if(dia>29){
                 return false;
             }
@@ -254,13 +260,10 @@ function validaformGetErrMessage(xmlDoc, category, language){
     var arrErrMsg=xmlDoc.getElementsByTagName("errMsg");
     for(node=0; node< arrErrMsg.length; node++){
         if(arrErrMsg[node].attributes[0].nodeValue== category){
-            //console.log(arrErrMsg[node].childNodes);
             for(var nodeChild=0 ; nodeChild<arrErrMsg[node].childNodes.length;nodeChild++ ){
-                //console.log(arrErrMsg[node].childNodes[nodeChild].nodeName);
                 if(arrErrMsg[node].childNodes[nodeChild].nodeName==language){
-                    // console.log(arrErrMsg[node].childNodes[nodeChild]);
-                    cadena= arrErrMsg[node].childNodes[nodeChild].textContent;
-                    //console.log(cadena);
+                   cadena= arrErrMsg[node].childNodes[nodeChild].textContent;
+                    
                 }
             }
         }
@@ -276,9 +279,8 @@ Devuelve: Genera o manipula el DOM del documento
 function validaformResetErrMessage (msgType){
    switch(msgType){
        case 'createElement':
-            // Eliminar todos los LABEL de la class .validaform-errMsg
             var arrObjLabelError=document.querySelectorAll("label.validaform-errMsg");
-            for(var k =0; k< arrObjLabelError.length ;k++ ){
+            for(var k =0; k < arrObjLabelError.length ;k++ ){
                 arrObjLabelError[k].remove();
             }
             break;
@@ -314,6 +316,7 @@ function validaformLoadXmlReports(msgXmlDoc){
     }
     xhttp.open("GET",msgXmlDoc,false);
     xhttp.send(null);
-    var xmlDoc=xhttp.responseXML;
-    return xmlDoc;
+    return  xmlDoc=xhttp.responseXML;
+   
+
 }
