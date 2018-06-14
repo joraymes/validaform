@@ -10,7 +10,7 @@
 	objForm	:	como un Objeto formulario del documento. 
 	msgType	:	como string indicando el modo de mensaje de error (ver Mensajes de Error)
 	language:	como string indicando el idioma de los mensajes de error ( ver Idioma)
-	xmlDoc	:	como string indicando la ruta  del fichero xml de mensajes de error ej: '/js/validaform.xml'
+	xmlDocURL:	como string indicando la ruta  del fichero xml de mensajes de error ej: '/js/validaform.xml'
 
 ## Devuelve		
 	True si todos los elementos del formulario son correctos.
