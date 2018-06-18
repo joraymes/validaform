@@ -91,7 +91,7 @@ function validaform(objForm,msgType,language,xmlDocURL){
         }
         /* ---------------------------------- email --------------------------------------------- */
         if(objForm.elements[i].className.indexOf('email')!=-1){
-            if(objForm.elements[i].value==''){
+            if(objForm.elements[i].value!=''){
                 if(! objForm.elements[i].value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)   ){
                     totOk=false;
                     objForm.elements[i].className += ' validaform-errField ';
@@ -101,7 +101,7 @@ function validaform(objForm,msgType,language,xmlDocURL){
         }
         /* ----------------------------------- NIF ----------------------------------------------- */
         if(objForm.elements[i].className.indexOf('NIF')!=-1){
-            if(objForm.elements[i].value==''){
+            if(objForm.elements[i].value!=''){
                 if(! validaformParseNIF(objForm.elements[i].value)){
                     totOk=false;
                     objForm.elements[i].className += ' validaform-errField ';
@@ -154,7 +154,7 @@ function validaform(objForm,msgType,language,xmlDocURL){
 
         /* --------------------------------- isDateDdMmYyyy -------------------------------------------*/
         if(objForm.elements[i].className.indexOf('isDateDdMmYyyy')!=-1){
-            if(objForm.elements[i].value==''){
+            if(objForm.elements[i].value!=''){
                 if(! validaformParseDate(objForm.elements[i].value)){
                     totOk=false;
                     objForm.elements[i].className += ' validaform-errField ';
